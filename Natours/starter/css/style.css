@@ -1,0 +1,215 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Universal Selector Simple Reset */
+*, 
+*::after, /* make sure the after/before elements we create in CSS get universal rules */
+*::before {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: inherit; /* forces inheritence for box size defined in BODY */
+}
+    /* this will allow each element to load the same on each browser */
+    /* ex: browsers load h1s automatically with a certain amount of padding */
+
+/* Serves as ROOT global font size that all rem sizes will be compared to */
+html {
+    font-size: 62.5%; /* Percentage of default font size given by browser (16px) * 62.6% = 10px.  */ 
+} /* 1 rem = 10px so 10 is a good base */
+
+/* properties related to font are normally inherited - so do it in body because every element is a child of body  */
+body {
+    font-family: "Lato", sans-serif; /* 2nd option says if 1st isn't available */
+    font-weight: 400; 
+    font-size: 1.6rem; 
+    line-height: 1.7; /* 1.7x bigger than predefined */
+    color: #777; 
+    padding: 3rem; /* adds to outside of full body - does no inherit to other elements. = 30px - 3rem * 10base px in html tag*/
+    box-sizing: border-box; /* INHERITENCE for all elements. borders and padding are no longer added to total width or height that is specified for a box*/
+}
+
+.header {
+    height: 95vh; /* at every point it should be 95% of view -- cuts off at bottom */
+
+    background-image: linear-gradient( /* gradient takes 2 colors for animation */ 
+        to right bottom, /* indicate direction like bottom right corner */ 
+        rgba(126, 213, 111, 0.801), /* 0.8 is opacity - good for see through because*/
+        rgba(40, 180, 133, 0.801)), /*gradient is on top of image  */
+        url(../img/hero.jpg); /* Img: go up into img folder to load the file you want */
+
+    background-size: cover; /* whatever the width of viewport, it will try to fit inside the box*/
+
+    background-position: top; /* top of image will stay at top of container */
+
+    position: relative; /* origin for logo-box*/
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%) /* indicate 4 corners clockwise in x and y coordinates */
+        /* can use less corners - like 3 points */
+        /* could use px v. % -- vh for viewport height also it to adjust*/
+}
+
+/* to position the logo */
+.header__logo-box {
+    position: absolute; /* header is parent element */
+    top: 4rem; /* 4 * 10px base in html = 40px*/
+    left: 4rem; 
+}
+
+/* to style the logo */
+.header__logo {
+    height: 3.5rem; /* width will scale accordingly. can do vise-versa */
+}
+
+/* h1 positioning div - need it centered*/
+.header__text-box {
+    position: absolute; 
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* shifts half of width/height to left/top. otherwise, the top would START in the middle */
+    text-align: center; /* discover our tours button is in this div - centers it because it is text */
+}
+
+/* h1 */
+.heading-primary {
+    color: #fff; 
+    text-transform: uppercase;
+
+    backface-visibility: hidden; /* gets rid of shakiness in animation below */
+    margin-bottom: 6rem; /* space between header and discover button */ 
+}
+
+.heading-primary--main{
+    display: block; /* Block Level Elements - occupy entire width and create line breaks before/after */
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem; /* gap between each letter*/
+
+    /* calling animation below in styling  */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; /* how it should progress. start slower and finish faster*/
+    /* 
+        animation-delay: 3s;  would wait 3 secs to run
+        animation-iteration-count: 3; -- would run 3 times
+    */
+}
+
+.heading-primary--sub {
+    display: block; /* gives our break in the header between 2 lines */
+    font-size: 2rem;
+    font-weight: 700; /* google fonts in head of html indicate what weight we have available */ 
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; /* can combine name, duration, timing-function */
+}
+
+/* animations for h1 */
+@keyframes moveInLeft { /* consider it a function name*/
+    0% { /* at the start of animation: OPACITY AND TRANSFORM ARE 2 TO USE */
+        opacity: 0; /* we want it to be invisible/transparent*/
+        transform: translateX(-10rem); /* want to move it along x axis. want it to start more on left */
+    }
+
+    80% {
+        transform: translateX(1rem); /* move slightly to the right before bouncing back/recenter at 100%*/ 
+    }
+
+    100% { /* at animation finish */
+        opacity: 1;
+        transform: translate(0); /* want it to look how it's styled otherwise*/
+    }
+}
+
+@keyframes moveInRight { /* for the 2nd span in the h1*/
+    0% { 
+        opacity: 0; 
+        transform: translateX(10rem); 
+    }
+
+    80% {
+        transform: translateX(-1rem); /* move a little to left before it bounces back */
+    }
+
+    100% { 
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+
+@keyframes moveInBottom { /* for the discover our tours button*/
+    0% { 
+        opacity: 0; 
+        transform: translateY(3rem); /* start lower - positive down y axis*/
+    }
+
+    100% { 
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+/* animations can be used not only on page load, but with :hover etc */
+
+/* btns */
+.btn:link,
+.btn:visited { /* link/visited are states of button selector (like a hover)- pseudo class*/
+    text-transform: uppercase;
+    text-decoration: none; /* gets rid of underline of a tag */
+    padding: 1.5rem 4rem; /* first for top/bottom and then left/right*/
+    display: inline-block; /* before was inline element so was on top of text. this gives padding and treats it like text */
+    border-radius: 10rem; /* shapes it like an oval */
+    transition: all .2s; /* all properties enabled to be animated*/
+    position: relative; /* this allows our AFTER element below to be positioned absolute in reference to our buttons*/
+}
+
+.btn:hover { /* animation for hover */
+    transform: translateY(-3px); /* MOVES UP - y axis moves from top to bottom so negative works */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); /* first is offset in x direction, then y, then BLUR, color black with 20% opacity (subtle shadow)*/
+}
+
+.btn:active { /* when we click it */
+    transform: translateY(-1px); /* in relation to initial link state, not hover*/
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2); /* lose a bit of shadow and blur when clicked v hover */
+}
+
+/* discover our tours button */
+.btn--white {
+    background-color: #fff;
+    color: #777
+}
+
+.btn::after { /* adds an element that is behind btn */
+    content: ""; /* necessary to make it show */
+    /* make it look the same as the other button */
+    display: inline-block;
+    height: 100%; /* treated like a child of the button */
+    width: 100%;  /* so this is 100% of the button*/
+    border-radius: 10rem;
+
+    /* positioning of after element effect */
+    position: absolute; /* if btn:visited was not positioned relative, this would reference header */
+    top: 0;
+    left: 0;
+    z-index: -1; /* specifically puts in behind the button*/
+
+    /* allows us to add animation - needs to be added on OG state */
+    transition: all .4s;
+}
+
+.btn--white::after{ /* need this specifically for the discover our tours button*/
+    background-color: #fff;
+}
+
+.btn:hover::after { /* when we hover on the button, style the after element behind it*/
+    transform: scaleX(1.4) scaleY(1.6); /* increase the element on both axises*/
+    opacity: 0; /* fade it out - makes it transparent*/
+}
+
+.btn--animated {
+    animation: moveInBottom .5s ease-out .75s; /* .75s is delay to make it come a little later than h1*/
+    animation-fill-mode: backwards; /* hides btn until animation is over - auto applies 0% before animation starts*/
+}

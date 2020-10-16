@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- this lines adds font Lato from google - go to google fonts to find-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/icon-font.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <!-- title goes web browser's tab name -->
+        <title>Natours | Exciting tours for adventurous people</title> 
+    </head>
+    <body>
+        <!-- implement BEM system starting at first component (header) cause it's meaningful on it's own  -->
+        <header class="header">
+            <div class="header__logo-box"> <!-- put image inside of div b/c image is 'inline,' but we can position the div-->
+                <img src="img/logo-white.png" alt="Logo" class="header__logo"/> <!-- BEM system has 2 _ after component name -->
+            </div>
+
+            <div class="header__text-box">
+                <!-- heading below is a standalone - so don't need header__  -->
+                <h1 class="heading-primary"> <!--h1 is where google goes to check on site. good to use full slogan but want to style differently-->
+                    <span class="heading-primary--main">Outdoors</span> <!--used to style text separately-->
+                    <span class="heading-primary--sub">is where life happens</span> <!-- is a modifier which is why we do --main and sub -->
+
+                </h1>
+
+                <!-- anchor element that will push to different part of site-->
+                <a href="#" class="btn btn--white btn--animated">Discover Our Tours</a> <!-- two classes. btn will hold all styling for btns, btn-white will help with this coloring/style specifically and animated will help us slide it in from bottom -->
+            </div>
+        </header>
+        
+    </body>
+</html>
