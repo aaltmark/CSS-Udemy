@@ -1,0 +1,25 @@
+//COMPILER -- copy and paste everything from style file 
+
+//import partials 
+@import "abstracts/functions"; 
+@import "abstracts/mixins"; 
+@import "abstracts/variables"; 
+
+@import "base/base"; //don't need underscore or .scss 
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
+//components 
+@import "components/button"; 
+
+//layouts 
+@import "layout/header";
+@import "layout/grid"; 
+
+@import "pages/home"; 
+
+
+  
+
+

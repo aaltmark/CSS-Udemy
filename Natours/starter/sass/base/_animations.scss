@@ -1,0 +1,47 @@
+//animations 
+
+/* animations for h1 */
+@keyframes moveInLeft { /* consider it a function name*/
+    0% { /* at the start of animation: OPACITY AND TRANSFORM ARE 2 TO USE */
+        opacity: 0; /* we want it to be invisible/transparent*/
+        transform: translateX(-10rem); /* want to move it along x axis. want it to start more on left */
+    }
+
+    80% {
+        transform: translateX(1rem); /* move slightly to the right before bouncing back/recenter at 100%*/ 
+    }
+
+    100% { /* at animation finish */
+        opacity: 1;
+        transform: translate(0); /* want it to look how it's styled otherwise*/
+    }
+}
+
+@keyframes moveInRight { /* for the 2nd span in the h1*/
+    0% { 
+        opacity: 0; 
+        transform: translateX(10rem); 
+    }
+
+    80% {
+        transform: translateX(-1rem); /* move a little to left before it bounces back */
+    }
+
+    100% { 
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+
+@keyframes moveInBottom { /* for the discover our tours button*/
+    0% { 
+        opacity: 0; 
+        transform: translateY(3rem); /* start lower - positive down y axis*/
+    }
+
+    100% { 
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+/* animations can be used not only on page load, but with :hover etc */

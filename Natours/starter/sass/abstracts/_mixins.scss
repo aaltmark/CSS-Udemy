@@ -1,0 +1,8 @@
+//append a psudo element after element to clear floats  
+@mixin clearfix {
+    &::after {
+        content: ""; //psudo wont appear without this property
+        display: table; 
+        clear: both; //clear both floats 
+    }
+}

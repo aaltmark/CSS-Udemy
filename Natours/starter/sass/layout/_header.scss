@@ -1,0 +1,40 @@
+.header {
+    height: 95vh; /* at every point it should be 95% of view -- cuts off at bottom */
+
+    background-image: linear-gradient( /* gradient takes 2 colors for animation */ 
+        to right bottom, /* indicate direction like bottom right corner */ 
+        rgba($color-primary-light, 0.8), /* 0.8 is opacity - good for see through because*/
+        rgba($color-primary-dark, 0.8)), /*gradient is on top of image  */
+        url(../img/hero.jpg); /* Img: go up into img folder to load the file you want */
+
+    background-size: cover; /* whatever the width of viewport, it will try to fit inside the box*/
+
+    background-position: top; /* top of image will stay at top of container */
+
+    position: relative; /* origin for logo-box*/
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* indicate 4 corners clockwise in x and y coordinates */
+        /* can use less corners - like 3 points */
+        /* could use px v. % -- vh for viewport height also it to adjust*/
+
+    //to position the logo 
+    &_logo-box { //nested instead of separate writing header every time 
+        position: absolute; /* header is parent element */
+        top: 4rem; /* 4 * 10px base in html = 40px*/
+        left: 4rem; 
+    }
+
+    /* to style the logo */
+    &__logo { //nested => .header__logo
+        height: 3.5rem; /* width will scale accordingly. can do vise-versa */
+    }
+
+    /* h1 positioning div - need it centered*/
+    &__text-box { //nested 
+        position: absolute; 
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* shifts half of width/height to left/top. otherwise, the top would START in the middle */
+        text-align: center; /* discover our tours button is in this div - centers it because it is text */
+    }
+}

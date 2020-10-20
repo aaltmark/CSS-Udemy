@@ -1,0 +1,59 @@
+body {
+    font-family: "Lato", sans-serif; /* 2nd option says if 1st isn't available */
+    font-weight: 400; 
+    font-size: 1.6rem; 
+    line-height: 1.7; /* 1.7x bigger than predefined */
+    color: $color-grey-dark; 
+    padding: 3rem; /* adds to outside of full body - does no inherit to other elements. = 30px - 3rem * 10base px in html tag*/
+}
+
+/* h1 */
+.heading-primary {
+    color: $color-white; 
+    text-transform: uppercase;
+
+    backface-visibility: hidden; /* gets rid of shakiness in animation below */
+    margin-bottom: 6rem; /* space between header and discover button */ 
+
+    &--main{ //nested
+        display: block; /* Block Level Elements - occupy entire width and create line breaks before/after */
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem; /* gap between each letter*/
+
+        /* calling animation below in styling  */
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out; /* how it should progress. start slower and finish faster*/
+        /* 
+            animation-delay: 3s;  would wait 3 secs to run
+            animation-iteration-count: 3; -- would run 3 times
+        */
+    }
+
+    &--sub { //nested
+        display: block; /* gives our break in the header between 2 lines */
+        font-size: 2rem;
+        font-weight: 700; /* google fonts in head of html indicate what weight we have available */ 
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out; /* can combine name, duration, timing-function */
+    }
+}
+
+// h2 
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block; //so it stops when text stops - not 100% width 
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text; //background is clipped exactly where text is 
+    color: transparent; //so that we can see gradient behind text 
+    letter-spacing: 2px; //use px and not rem because 2 is small 
+    transition: all .2s; //delay all animations .2s  
+
+    &:hover { //when hover over h2 
+        transform: skewY(2deg) skewX(15deg) scale(1.1); //multiple - twist it on both axis' and make it 10% larger 
+        text-shadow: .5rem 1rem 2rem rgba($color-black, 0.2); //add shadow with smaller x than y, blur it 2 rem and make it black/transparent 
+    }
+}
