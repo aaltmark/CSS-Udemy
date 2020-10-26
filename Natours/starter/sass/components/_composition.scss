@@ -1,0 +1,44 @@
+// Used for 3 pics 
+
+// the div that holds the photos 
+.composition {
+    position: relative; //needed so we can set position as absolute for photos 
+
+    &__photo { //the photos 
+        width: 55%; //define width in % so it will scale with viewport
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute; //reference is 1st parent it encounters that has it's position set to something
+        z-index: 10; //used as reference for hovered photo 
+        transition: all .2s;
+        outline-offset: 2rem; //will give us space btwn border and photo when hovered
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2 {
+            right: 0; //start at right side 
+            top: 2rem; //20px from the top 
+        }
+
+        &--p3 {
+            left: 20%; //images in % so it scales with viewport 
+            top: 10rem;
+        }
+
+        // when photos are hovered over 
+        &:hover {
+            outline: 1.5rem solid $color-primary; //basically a border but offset by styling above to have space 
+            transform: scale(1.05) translateY(-.5rem); //make photos slightly bigger and move up 5px
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5); //bigger shading that is a little darker 
+            z-index: 20; //will jump in front of other photos 
+        }
+    }
+
+    // hover on entire composition 
+    &:hover &__photo:not(:hover) { //find photo that is NOT BEING HOVERED (2/3)
+        transform: scale(.95); //shrink them 5% 
+    }
+}

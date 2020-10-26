@@ -1,7 +1,7 @@
 body {
     font-family: "Lato", sans-serif; /* 2nd option says if 1st isn't available */
     font-weight: 400; 
-    font-size: 1.6rem; 
+    font-size: $default-font-size; 
     line-height: 1.7; /* 1.7x bigger than predefined */
     color: $color-grey-dark; 
     padding: 3rem; /* adds to outside of full body - does no inherit to other elements. = 30px - 3rem * 10base px in html tag*/
@@ -55,5 +55,22 @@ body {
     &:hover { //when hover over h2 
         transform: skewY(2deg) skewX(15deg) scale(1.1); //multiple - twist it on both axis' and make it 10% larger 
         text-shadow: .5rem 1rem 2rem rgba($color-black, 0.2); //add shadow with smaller x than y, blur it 2 rem and make it black/transparent 
+    }
+}
+
+// h3 like you're going to fall in love with nature 
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+// p under the heading tertiary 
+.paragrah {
+    font-size: $default-font-size;
+
+    //get spacing between paragraphs but no spacing after last one 
+    &:not(:last-child) {
+        margin-bottom: 3rem;
     }
 }

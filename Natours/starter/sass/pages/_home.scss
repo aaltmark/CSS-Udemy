@@ -3,3 +3,24 @@
     padding: 25rem 0; //padding on top and bottom . none on sides 
     margin-top: -20vh; //moving it up so it covers the top right from the polygon 
 }
+
+.section-features {
+    padding: 20rem 0; 
+
+    // gradient copied from header.scss
+    background-image: linear-gradient( 
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)), 
+        url(../img/nat-4.jpg);
+
+    background-size: cover;
+    transform: skewY(-7deg); // skewed design - right side higher than left 
+    margin-top: -10rem; //to cover white space caused by skew - move whole thing up 
+
+    // select ALL direct children -- the row holding the boxes that say ('explore the world') etc
+    & > * {
+        transform: skewY(7deg); //straightens the boxes v the -7 for the whole section 
+    }
+
+}

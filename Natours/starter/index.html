@@ -7,6 +7,9 @@
         <!-- this lines adds font Lato from google - go to google fonts to find-->
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
+        <!-- references the icons we added from linea and dropped into our css folder -->
+        <link rel="stylesheet" href="css/icon-font.css"
+
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/favicon.png">
@@ -37,7 +40,7 @@
         <!--container that will hold most of the site -->
         <main>
             <section class="section-about">
-                <div class="u-center-text u-margin-bottom-8"> <!--2 utility classes - center text, add margin to bottom  -->
+                <div class="u-center-text u-margin-bottom-big"> <!--2 utility classes - center text, add margin to bottom  -->
                     <h2 class="heading-secondary"> <!--going in home scss -->
                         Exciting tours for adventurous people 
                     </h2>
@@ -45,10 +48,83 @@
 
                 <div class="row">
                     <div class="col-1-of-2">
-                        Text content 
+                        <!-- adding second class name b/c some h3 will not need the margin on the bottom  -->
+                        <h3 class="heading-tertiary u-margin-bottom-small">Your're Going to fall in love with nature</h3>
+
+                        <p class="paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eaque officiis. Cupiditate perspiciatis repellat mollitia atque, harum recusandae. Aliquid nobis architecto blanditiis similique sint amet magni consectetur optio vero.
+                        </p>
+
+                        <h3 class="heading-tertiary u-margin-bottom-small">Live adventures like you never have before</h3>
+                        <p class="paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, adipisci atque? Natus eveniet sequi nisi debitis deleniti nulla ad
+                        </p>
+
+                        <!-- &rarr will translate to an arrow  -->
+                        <a href="#" class="btn-text">Learn more &rarr;</a> 
+
                     </div>
+
                     <div class="col-1-of-2">
-                        Image composition
+                        <div class="composition">
+                            <!-- 3 images with same element class but with different MODIFIER  -->
+                            <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                            <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                            <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-features">
+
+                <div class="row">
+                    <div class="col-1-of-4">
+                        <!-- need to create a separate element for animations and extra gutter spacing -->
+                        <div class="feature-box">
+                             <!-- icon class names are references online  -->
+                            <i class="feature-box__icon icon-basic-world"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
+                            <p class="feature-box__text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet veritatis velit deserunt consequuntur
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <!-- need to create a separate element for animations and extra gutter spacing -->
+                        <div class="feature-box">
+                             <!-- icon class names are references online  -->
+                            <i class="feature-box__icon icon-basic-compass"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Meet nature</h3>
+                            <p class="feature-box__text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet veritatis velit deserunt consequuntur
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <!-- need to create a separate element for animations and extra gutter spacing -->
+                        <div class="feature-box">
+                             <!-- icon class names are references online  -->
+                            <i class="feature-box__icon icon-basic-map"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Find your way</h3>
+                            <p class="feature-box__text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet veritatis velit deserunt consequuntur
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <!-- need to create a separate element for animations and extra gutter spacing -->
+                        <div class="feature-box">
+                             <!-- icon class names are references online  -->
+                            <i class="feature-box__icon icon-basic-heart"></i>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Live a healthier life</h3>
+                            <p class="feature-box__text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet veritatis velit deserunt consequuntur
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

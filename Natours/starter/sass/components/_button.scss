@@ -9,6 +9,7 @@
         border-radius: 10rem; /* shapes it like an oval */
         transition: all .2s; /* all properties enabled to be animated*/
         position: relative; /* this allows our AFTER element below to be positioned absolute in reference to our buttons*/
+        font-size: $default-font-size;
     }
 
     &:hover { /* animation for hover */
@@ -57,5 +58,31 @@
     &--animated {
         animation: moveInBottom .5s ease-out .75s; /* .75s is delay to make it come a little later than h1*/
         animation-fill-mode: backwards; /* hides btn until animation is over - auto applies 0% before animation starts*/
+    }
+}
+
+// learn more button 
+.btn-text {
+    &:link, 
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary; 
+        display: inline-block; //so we can use box model properties like padding 
+        text-decoration: none; //don't want auto underline 
+        border-bottom: 1px solid $color-primary; //used so we can set padding. 
+        padding: 3px; //so small so we don't need rem 
+        transition: all .2s; //so we can transform it 
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15); //0 on x, 10px on y, 20px blur
+        transform: translateY(-2px); //move it up 
+    }
+
+    &:active {
+        box-shadow: 0 1rem 2rem rgba($color-black, .15); //0 on x, 10px on y, 20px blur
+        transform: translateY(0); //move back to original position 
     }
 }
