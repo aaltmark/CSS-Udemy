@@ -1,5 +1,6 @@
 /* btns --now nested */
 .btn {
+    &, //this will allow us to style next step button element. it doesn't have link or visited classes
     &:link,
     &:visited { /* link/visited are states of button selector (like a hover)- pseudo class*/
         text-transform: uppercase;
@@ -10,6 +11,10 @@
         transition: all .2s; /* all properties enabled to be animated*/
         position: relative; /* this allows our AFTER element below to be positioned absolute in reference to our buttons*/
         font-size: $default-font-size;
+
+        // change for the next step button element 
+        border: none;
+        cursor: pointer;
     }
 
     &:hover { /* animation for hover */
@@ -22,7 +27,9 @@
         }
     }
 
-    &:active { /* when we click it */
+    &:active, /* when we click it */
+    &:focus { /* specifically for 'next steps' btn in form  */
+        outline: none; //to get rid of blue box when hit 'next steps' btn in form
         transform: translateY(-1px); /* in relation to initial link state, not hover*/
         box-shadow: 0 .5rem 1rem rgba($color-black, .2); /* lose a bit of shadow and blur when clicked v hover */
     }

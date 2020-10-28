@@ -1,0 +1,19 @@
+// for background video 
+
+.bg-video { //parent is section-stories
+    position: absolute; //need relatie for parent 
+    top: 0; //start top left 
+    left: 0;
+    height: 100%; //take up same size as parent
+    width: 100%; //take up same size as parent 
+    z-index: -1; //put behind all elements 
+    opacity: .15;
+    overflow: hidden; //clips extra on side 
+
+    // the video itself
+    &__content {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; //makes sure it just covers the area
+    }
+}

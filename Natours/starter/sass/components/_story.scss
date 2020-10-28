@@ -1,0 +1,67 @@
+// user stories with background video 
+
+.story {
+    width: 75%;
+    margin: 0 auto; //center box element inside box element 
+    box-shadow: 0 3rem 6rem rgba($color-black, .1); 
+    background-color: rgba($color-white, .5); //so background has white color but a lil transparent to see vid
+    border-radius: 3px; 
+    padding: 6rem;
+    padding-left: 9rem; //6 padding + 3rem for the shape's transform  
+    font-size: $default-font-size; //paragraph will inherit
+    transform: skewX(-12deg); //make shape 
+
+    &__shape {
+        width: 15rem; //square
+        height: 15rem; //square at first
+        float: left; //so story can be on right 
+
+        // define where content floats around element 
+        -webkit-shape-outside: circle(50% at 50% 50%); //browser compatability 
+        shape-outside: circle(50% at 50% 50%); //radius. half width and height starting @ center 
+
+        // makes the element actually look like a circle
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+
+        transform: translateX(-3rem) skewX(12deg); //translate is best way to move an element that is floated. skew is to offset rectangular skew
+        position: relative; //so caption can reference and sit on top 
+    }
+
+    &__img {
+        height: 100%; //flexible images NEED a width or height. want it to take full shape 
+        transform: translateX(-4rem) scale(1.4); //it was a little off center. scale it so when hover can make smaller
+        backface-visibility: hidden;
+        transition: all .5s; //so we can add transforms when hovered
+    }
+
+    &__text {
+        transform: skewX(12deg);//to offset rectangular skew 
+    }
+
+    &__caption { //want it to be centered over image 
+        position: absolute; //shape has relative positioning so it will reference that 
+        top: 50%; //center
+        left: 50%; //center
+        transform: translate(-50%, 20%); //center on x. y axis - before hover it needs to be further down so we can move it up 
+        color: $color-white; 
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0; //starts invisible 
+        transition: all .5s; //so we can add a transform in hover
+        backface-visibility: hidden; //fixes shake in text when moves up in hover
+    }
+
+    // when STORY is hovered we want to change the CAPTION 
+    &:hover &__caption {
+        opacity: 1; //show it 
+        transform: translate(-50%, -50%); //move it to center v before was 20% on y 
+    }
+
+    // when STORY is hovered we want to change the IMAGE 
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1); //keep the og positioning but scale it back to og size 
+        filter: blur(3px) brightness(80%); //blur. brightness value below 100 makes it darker. filter has a lot of styles 
+    }
+}

@@ -237,6 +237,121 @@
                     <a href="#" class="btn btn--green">Discover all tours</a>
                 </div>
             </section>
+
+            <section class="section-stories">
+                
+                <!-- div to hold background video  -->
+                <div class="bg-video">
+                    <!-- autoplay good for bg, muted as well and loop -->
+                    <video class="bg-video__content" autoplay muted loop>
+
+                        <!-- got videos from 'coverr' -->
+                        <source src="img/video.mp4" type="video/mp4">
+                        <source src="img/video.webm" type="video/webm"> <!-- need 2 formats for browser compatability-->
+
+                        <!-- if neither videos can be played the text will show -->
+                        Your browser is not supported! 
+                    </video>
+                </div>
+
+                <div class="u-center-text u-margin-bottom-big"> 
+                    <h2 class="heading-secondary"> 
+                        We make people genuinely happy
+                    </h2>
+                </div>
+
+                <!-- row can be used for centering and margin. no columns needed -->
+                <div class="row">
+                    <div class="story">
+                        <!-- figure to hold image and caption -->
+                        <figure class="story__shape">
+                            <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img"/>
+                            <figcaption class="story__caption">Mary Smith </figcaption> <!-- special element -->
+                        </figure>
+                        <div class="story__text">
+                            <h3 class="heading-tertiary u-margin-bottom-small">I had the best week ever with my family</h3>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat maiores, exercitationem nulla impedit magnam pariatur illum at assumenda voluptatum officia! Numquam minima officia. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2nd story  -->
+                <div class="row">
+                    <div class="story">
+                        <!-- figure to hold image and caption -->
+                        <figure class="story__shape">
+                            <img src="img/nat-9.jpg" alt="Person on a tour" class="story__img"/>
+                            <figcaption class="story__caption">Jack Wilson </figcaption> <!-- special element -->
+                        </figure>
+                        <div class="story__text">
+                            <h3 class="heading-tertiary u-margin-bottom-small">WOW! My life is completely different now</h3>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat maiores, exercitationem nulla impedit magnam pariatur illum at assumenda voluptatum officia! Numquam minima officia. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="u-center-text u-margin-top-huge">
+                    <a href="#" class="btn-text">Read all stories &rarr;</a> <!-- &rarr adds a right arrow-->
+                </div>
+
+            </section>
+
+            <section class="section-book">
+                <div class="row"> <!--used to center-->
+                    <div class="book">
+                        <div class="book__form">
+                            <form action="#" class="form">
+                                <!-- title -->
+                                <div class="u-margin-bottom-medium">
+                                    <h2 class="heading-secondary">
+                                        Start booking now
+                                    </h2>
+                                </div>
+
+                                <!-- name -->
+                                <div class="form__group">
+                                    <input type="text" class="form__input" placeholder="Full Name" id="name" required> <!-- required can't submit unless filled -->
+                                    <label for="name" class="form__label">Full name</label> <!-- for connects to input id -->
+                                </div>
+
+                                <!-- email -->
+                                <div class="form__group">
+                                    <input type="email" class="form__input" placeholder="Email address" id="email" required> <!--email type will check if valid email-->
+                                    <label for="email" class="form__label">Email address</label> 
+                                </div>
+
+                                <!-- radio buttons -->
+                                <div class="form__group u-margin-bottom-medium">
+                                    <div class="form__radio-group">
+                                        <input type="radio" class="form__radio-input" id="small" name="size"> <!-- both radios have name of size so you can only select 1 -->
+                                        <label for="small" class="form__radio-label">
+                                            <!-- using a span because you cannot style radio buttons in css -->
+                                            <span class="form__radio-button"></span> 
+                                            Small tour group
+                                        </label>
+                                    </div>
+
+                                    <div class="form__radio-group">
+                                        <input type="radio" class="form__radio-input" id="large" name="size">
+                                        <label for="large" class="form__radio-label">
+                                            <span class="form__radio-button"></span> 
+                                            Large tour group
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form__group">
+                                    <button class="btn btn--green">Next step &rarr;</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <!--

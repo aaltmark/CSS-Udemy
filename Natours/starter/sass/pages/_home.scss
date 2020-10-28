@@ -30,3 +30,34 @@
     padding: 25rem 0 15rem 0; 
     margin-top: -10rem; //move section up to cut off whiite space before features sections 
 }
+
+.section-stories {
+    position: relative;
+    padding: 15rem 0; //15 top/bottom
+}
+
+.section-book {
+    padding: 15rem 0; 
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+// box with background image for form
+.book {
+    background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 50%, transparent 50%), url(../img/nat-10.jpg);
+        // background has 2 pieces, THE GRADIENT and the image 
+        // 105deg specifies where our line will cut across 
+        // from 0%-50% (halfway), we want a white background that is slightly transparent at .9 
+        // at the halfway point, then make background totally transparent so that 
+        // the 2nd background, the image, will show 
+        
+    background-size: 100%; //same as cover. 50% would give us a 2x2 of img 
+    border-radius: 3px; //rounded corners 
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2); //bit darker with .2 bc we have colored background
+
+    height: 50rem;
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}
