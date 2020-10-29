@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
         <!-- references the icons we added from linea and dropped into our css folder -->
-        <link rel="stylesheet" href="css/icon-font.css"
+        <link rel="stylesheet" href="css/icon-font.css">
 
         <link rel="stylesheet" href="css/icon-font.css">
         <link rel="stylesheet" href="css/style.css">
@@ -18,6 +18,29 @@
         <title>Natours | Exciting tours for adventurous people</title> 
     </head>
     <body>
+
+        <!-- nav will sit on top of everything  -->
+        <div class="navigation">
+            <!-- checkbox used so we can hack the 'checked' property for styling/showing the nav  -->
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle"> <!-- id will be connected to label's for -->
+
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span> <!--empty &nbsp is white space-->
+            </label>
+
+            <div class="navigation__background">&nbsp;</div> <!--this will be empty - &nbsp stands for whitespace -->
+
+            <!-- container that will span entire page so we can center list -->
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natours</a></li> <!--span to help with spacing -->
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+                </ul>
+            </nav>
+        </div>
         <!-- implement BEM system starting at first component (header) cause it's meaningful on it's own  -->
         <header class="header">
             <div class="header__logo-box"> <!-- put image inside of div b/c image is 'inline,' but we can position the div-->
@@ -33,7 +56,7 @@
                 </h1>
 
                 <!-- anchor element that will push to different part of site-->
-                <a href="#" class="btn btn--white btn--animated">Discover Our Tours</a> <!-- two classes. btn will hold all styling for btns, btn-white will help with this coloring/style specifically and animated will help us slide it in from bottom -->
+                <a href="#section-tours" class="btn btn--white btn--animated">Discover Our Tours</a> <!-- two classes. btn will hold all styling for btns, btn-white will help with this coloring/style specifically and animated will help us slide it in from bottom -->
             </div>
         </header>
 
@@ -129,7 +152,7 @@
                 </div>
             </section>
 
-            <section class="section-tours">
+            <section class="section-tours" id="section-tours">
                 <div class="u-center-text u-margin-bottom-big">
                     <h2 class="heading-secondary">
                         Most popular tours
@@ -164,7 +187,7 @@
                                         <p class="card__price-only">Only</p>
                                         <p class="card__price-value">$297</p>
                                     </div>
-                                    <a href="#" class="btn btn--white">Book now!</a>
+                                    <a href="#popup" class="btn btn--white">Book now!</a> <!--set anchor to unhide popup-->
                                 </div> 
                             </div>
                         </div>
@@ -195,7 +218,7 @@
                                         <p class="card__price-only">Only</p>
                                         <p class="card__price-value">$497</p>
                                     </div>
-                                    <a href="#" class="btn btn--white">Book now!</a>
+                                    <a href="#popup" class="btn btn--white">Book now!</a> <!--set anchor to unhide popup-->
                                 </div> 
                             </div>
                         </div>                    
@@ -226,7 +249,7 @@
                                         <p class="card__price-only">Only</p>
                                         <p class="card__price-value">$897</p>
                                     </div>
-                                    <a href="#" class="btn btn--white">Book now!</a>
+                                    <a href="#popup" class="btn btn--white">Book now!</a> <!--set anchor to unhide popup-->
                                 </div> 
                             </div>
                         </div>  
@@ -353,6 +376,52 @@
                 </div>
             </section>
         </main>
+
+        <footer class="footer">
+            <div class="footer__logo-box">
+                <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+            </div>
+            <div class="row">
+                <div class="col-1-of-2">
+                    <div class="footer__navigation">
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Privacy</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1-of-2">
+                    <p class="footer__copyright">
+                        Built by <a href="#" class="footer__link">Adam Altmark</a> to learn styling skills through<a href="#" class="footer__link">Advanced CSS and Sass</a>. Copyright &copy; by Jonas Schmedtamnn. 
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- book now popup-->
+        <div class="popup" id="popup"> <!--for dark background. id used for anchor tags to unhide -->
+            <div class="popup__content">
+                <div class="popup__left">
+                    <img src="img/nat-8.jpg" alt="Tour Photo" class="popup__img">
+                    <img src="img/nat-9.jpg" alt="Tour Photo" class="popup__img">
+                </div> 
+
+                <div class="popup__right">
+                    <a href="#section-tours" class="popup__close">&times;</a> <!--when you close, directions back to tours href. times is an 'x'-->
+                    <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking </h3> <!-- &ndash is a long dash -->
+                    <p class="popup__text"> <!-- loremipsum.io to generate -->
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim lobortis scelerisque fermentum dui faucibus. Elementum nibh tellus molestie nunc non blandit massa enim. At consectetur lorem donec massa sapien faucibus et. Mollis nunc sed id semper risus in hendrerit. Egestas erat imperdiet sed euismod nisi porta. Dignissim suspendisse in est ante. Molestie at elementum eu facilisis sed odio morbi quis. Eu tincidunt tortor aliquam nulla facilisi. Nunc sed velit dignissim sodales ut eu sem integer.
+                    </p>
+
+                    <a href="#" class="btn btn--green">Book now</a>
+
+                </div>
+            </div>
+        </div>
 
         <!--
         <section class="grid-test">

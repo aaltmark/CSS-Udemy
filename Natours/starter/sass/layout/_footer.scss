@@ -1,0 +1,63 @@
+// footer 
+
+.footer {
+    background-color: $color-grey-dark-3;
+    padding: 10rem 0; //less because it's just the footer
+    font-size: 1.4rem;
+    color: $color-grey-light-1; //copyright will inherit 
+
+    &__logo-box {
+        text-align: center; //image is inline so behaves like text 
+        margin-bottom: 8rem;
+    }
+
+    &__logo {
+        width: 15rem;
+        height: auto; //let it adjust
+    }
+
+    &__navigation {
+        border-top: 1px solid $color-grey-dark; //link above the links 'company' 'contact us' 
+        padding-top: 2rem; //space between border line and nav links 
+        display: inline-block; //takes 100% available width so border line will stop where links stop
+    }
+
+    &__list {
+        list-style: none; //get rid of bullets 
+    }
+
+    &__item {
+        display: inline-block; //want them side by side by not floated. inline is easier 
+        
+        // style all bullets except last one 
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            color: $color-grey-light-1;
+            background-color: $color-grey-dark-3; //same as footers background 
+            text-decoration: none; //good to do on links 
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .2s; //so we can animate 
+        }
+
+        &:hover, 
+        &:active { //clicked
+            color: $color-primary;
+            box-shadow: 0 1rem 2rem rgba($color-black, .4); //.4 a bit darker 
+            transform: rotate(5deg) scale(1.3);
+        }
+    }
+
+    &__copyright {
+        border-top: 1px solid $color-grey-dark; //link above copyright message 
+        padding-top: 2rem; //space between copyright message and border  
+        width: 80%;
+        float: right;
+    }
+}

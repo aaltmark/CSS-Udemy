@@ -6,3 +6,11 @@
         clear: both; //clear both floats 
     }
 }
+
+// centering with absolute 
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

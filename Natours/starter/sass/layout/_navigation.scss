@@ -1,0 +1,168 @@
+.navigation {
+    &__checkbox {
+        display: none; //don't want to actually see checkbox 
+    }
+
+    &__button {
+        background-color: $color-white;
+        height: 7rem; //same height and width so circle 
+        width: 7rem; //a little bigger than background so green is covered until clicked 
+        border-radius: 50%; //circle 
+        box-shadow: 0 1rem 3rem rgba($color-black, .1); //subtle with .1 
+
+        position: fixed; //stay when scrolled 
+        top: 6rem; //1 rem larger than background so 
+        right: 6rem; //half a rem further to top right corner 
+
+        z-index: 2000; //on top of background 
+
+        text-align: center; //to get 3 lines in span centered 
+        cursor: pointer;
+    }
+
+    &__background {
+        height: 6rem; //same height and width for circle
+        width: 6rem;
+        border-radius: 50%; //circle 
+        position: fixed; //will keep it there as we scroll - does not change position but does take element out of flow with relative element 
+        top: 6.5rem; //top
+        right: 6.5rem; //right corner 
+        background-image: radial-gradient($color-primary-light, $color-primary-dark); //radial starts in middle and goes to outside
+        z-index: 1000; //go on top of everything. only works if position is defined 
+        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1); //so we can add animation
+            // easings.net used for cubic transition timing   
+    }
+
+    &__nav {
+        height: 100vh; //when nav is clicked take up the whole screen
+
+        position: fixed; //even if you scroll when nav is open it doesn't move 
+        top: 0; //start in top right 
+        left: 0; //transition will move in from left now 
+
+        z-index: 1500; //want to show the 'x' when nav clicked and green background needs to be behind 
+
+        //hide before input is checked/nav is clicked 
+        opacity: 0; //can't see
+        width: 0; //can't access 
+
+        transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55); //so we can add animation 
+            // easings.net used for cubic transition timing   
+    }
+
+    &__list {
+        position: absolute;
+        top: 50%; //center in nav
+        left: 50%;//center in nav
+        transform: translate(-50%, -50%);//center in nav
+        list-style: none; //get right of bullets 
+        text-align: center;
+        width: 100%;
+    }
+
+    &__item {
+        margin: 1rem; //between each nav item 
+    }
+
+    &__link {
+        &:link,
+        &:visited { //normal state 
+            display: inline-block; //so can add padding and helps with transform 
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem; //always good to do more padding on side 
+            color: $color-white;
+            text-decoration: none; //standard 
+            text-transform: uppercase; 
+
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+                // 120 deg creates cut across the line
+                // transparent at 0 and 50% means we start our white
+                // white at 50% with the line and finish until the end of text 
+            background-size: 220%; //helps with background image. 
+                //if set to 100% we would see the colors defined above
+                //pushing it to 220% pushes the background to the right which is not visible 
+                // setting our hover/active state to 100% will slide it across for the effect 
+
+            transition: all .4s; //so we can add transformation on hover 
+
+            span {
+                margin-right: 1.5rem;
+                display: inline-block;
+            }
+        }
+
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-primary; //background will slide all the way white so we need to alter 
+            transform: translateX(1rem); //move slightly right 
+        }
+    }
+
+    // FUNCTIONALITY 
+    // when the input is checked we want to style the background
+    &__checkbox:checked ~ &__background {
+        transform: scale(80); //was a tiny circle before 
+    }
+
+    // when the input is checked we want to style the nav options 
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    // ICON 
+    &__icon {
+        position: relative; //parent for absolute positionig
+        margin-top: 3.5rem; //move down to get in icon circle 
+
+        &, //icon 
+        &::before, //psudo element 
+        &::after { //psudo element 
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block; 
+        }
+
+        &::before, //psudo element 
+        &::after { //psudo element 
+            content: ""; //needed for psudos 
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        // to get 3 lines top to bottom 
+        &::before { top: -.8rem; } //move up 
+        &::after { top: .8rem; } //move down 
+
+    }
+
+    // style the icon when the button (circle) is hovered 
+    &__button:hover &__icon::before {
+        top: -1rem; 
+    }
+
+    // style the icon when the button (circle) is hovered 
+    &__button:hover &__icon::after {
+        top: 1rem; 
+    }
+
+    // when checkbox is selected, get brother's child | style the icon 
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent; //invisible 
+    }
+
+// style before and after elements 
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg); //rotate to make x. 3/4 circle
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);//rotate to make x. 3/4 circle
+    }
+}
