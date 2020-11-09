@@ -6,6 +6,10 @@
     font-size: 1.4rem;
     color: $color-grey-light-1; //copyright will inherit 
 
+    @include respond(tab-port) {
+        padding: 8rem 0;
+    }
+
     &__logo-box {
         text-align: center; //image is inline so behaves like text 
         margin-bottom: 8rem;
@@ -20,6 +24,11 @@
         border-top: 1px solid $color-grey-dark; //link above the links 'company' 'contact us' 
         padding-top: 2rem; //space between border line and nav links 
         display: inline-block; //takes 100% available width so border line will stop where links stop
+
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__list {
@@ -59,5 +68,10 @@
         padding-top: 2rem; //space between copyright message and border  
         width: 80%;
         float: right;
+
+        @include respond(tab-port) {
+            width: 100%;
+            float: none; //get rid of it 
+        }
     }
 }

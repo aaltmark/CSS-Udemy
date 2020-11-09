@@ -18,6 +18,16 @@
 
         text-align: center; //to get 3 lines in span centered 
         cursor: pointer;
+
+        @include respond(tab-port) { //get nav logo closer to top right on smaller screens 
+            top: 4rem;
+            right: 4rem;
+        }
+
+        @include respond(phone) { 
+            top: 3rem;
+            right: 3rem;
+        }
     }
 
     &__background {
@@ -31,6 +41,16 @@
         z-index: 1000; //go on top of everything. only works if position is defined 
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1); //so we can add animation
             // easings.net used for cubic transition timing   
+
+        @include respond(tab-port) { //get nav logo closer to top right on smaller screens 
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+
+        @include respond(phone) { //get nav logo closer to top right on smaller screens 
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
 
     &__nav {

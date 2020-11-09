@@ -6,6 +6,14 @@
 
     &:not(:last-child) { //Not - select everything EXCEPT the last child 
         margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) { //for tablet and phone 
+            margin-bottom: $gutter-vertical-small
+        }
+    }
+
+    @include respond(tab-port) { //for tablet and phone 
+        max-width: 50rem; 
     }
 
     @include clearfix;  //add mixin 
@@ -15,7 +23,16 @@
         float: left; //always left 
         
         &:not(:last-child) { //everything except the last column 
-            margin-right: $gutter-horizontal; //now has a margin 
+            margin-right: $gutter-horizontal; //now has a margin
+            
+            @include respond(tab-port) { //for tablet and phone 
+                margin-right: 0; //they will be side by side on small screen so no need for margin 
+                margin-bottom: $gutter-vertical-small; //give little space btwn each row/column 
+            }
+        }
+
+        @include respond(tab-port) { //for tablet and phone 
+            width: 100% !important; //width of all columns will be 100%
         }
     }
 

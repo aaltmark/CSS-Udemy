@@ -18,6 +18,11 @@
         /* can use less corners - like 3 points */
         /* could use px v. % -- vh for viewport height also it to adjust*/
 
+    @include respond(phone) { //change the angle of the background cut for the header on phone 
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); 
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); 
+    }
+    
     //to position the logo 
     &_logo-box { //nested instead of separate writing header every time 
         position: absolute; /* header is parent element */

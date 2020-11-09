@@ -4,7 +4,6 @@ body {
     font-size: $default-font-size; 
     line-height: 1.7; /* 1.7x bigger than predefined */
     color: $color-grey-dark; 
-    padding: 3rem; /* adds to outside of full body - does no inherit to other elements. = 30px - 3rem * 10base px in html tag*/
 }
 
 /* h1 */
@@ -29,6 +28,10 @@ body {
             animation-delay: 3s;  would wait 3 secs to run
             animation-iteration-count: 3; -- would run 3 times
         */
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-family: 5rem;
+        }
     }
 
     &--sub { //nested
@@ -37,6 +40,10 @@ body {
         font-weight: 700; /* google fonts in head of html indicate what weight we have available */ 
         letter-spacing: 1.75rem;
         animation: moveInRight 1s ease-out; /* can combine name, duration, timing-function */
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -51,6 +58,14 @@ body {
     color: transparent; //so that we can see gradient behind text 
     letter-spacing: 2px; //use px and not rem because 2 is small 
     transition: all .2s; //delay all animations .2s  
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover { //when hover over h2 
         transform: skewY(2deg) skewX(15deg) scale(1.1); //multiple - twist it on both axis' and make it 10% larger 
