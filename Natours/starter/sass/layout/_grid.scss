@@ -13,7 +13,8 @@
     }
 
     @include respond(tab-port) { //for tablet and phone 
-        max-width: 50rem; 
+        max-width: 50rem;
+        padding: 0 3rem; //padding on sides for rows 
     }
 
     @include clearfix;  //add mixin 
