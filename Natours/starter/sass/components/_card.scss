@@ -153,4 +153,51 @@
         font-size: 6rem;
         font-weight: 100; //thin
     }
+
+    //Big media query since we're rewriting a lot 
+    @include respond(tab-port) {
+        height: auto; 
+        border-radius: 3px; //move radius to full element since front/back are connected 
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        
+        &__side {
+            height: auto;
+            position: relative; //now relative bc only 1 side 
+            box-shadow: none; //get rid of it - needs to be on full card
+
+            // back of card 
+            &--back {
+                transform: rotateY(0); //should not rotate 
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); //new polygon to connect back to front
+            }
+        }
+        // front side when hovered 
+        &:hover &__side--front {
+            transform: rotateY(0); //should not rotate 
+        }
+        //  front side styling stays the same so delete  
+        &_details {
+            padding: 1rem 3rem; //more on sides
+        } 
+
+        // BACK SIDE STYLING
+        &__cta {
+            position: relative; //so bottom goes below 
+            top: 0; 
+            left: 0;  
+            transform: translate(0); //center 
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem; //7 on top 
+        }
+
+        // contains price 'only' and price 'va lue' for inheritance 
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+        &__price-value {
+            font-size: 4rem;
+        }
+    }
 }

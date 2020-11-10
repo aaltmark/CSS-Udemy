@@ -18,6 +18,10 @@
         display: block; //so it has it's own line and label will go below 
         transition: all .3s;
 
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
         // when input is selected
         &:focus {
             outline: none; //get rid of auto blue box around input.
@@ -57,6 +61,11 @@
     &__radio-group {
         width: 49%; //only take up half so can be side by side 
         display: inline-block; //will not create line breaks 
+
+        @include respond(tab-port) {
+            width: 100%;
+            margin-bottom: 2rem; //so small and large options are not on top 
+        }
     }
 
     // real radio input 

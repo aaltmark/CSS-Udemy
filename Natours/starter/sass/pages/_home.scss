@@ -2,6 +2,10 @@
     background-color: $color-grey-light-1;
     padding: 25rem 0; //padding on top and bottom . none on sides 
     margin-top: -20vh; //moving it up so it covers the top right from the polygon 
+
+    @include respond(tab-port) {
+        padding: 20rem 0; //decrease padding 
+    }
 }
 
 .section-features {
@@ -23,22 +27,38 @@
         transform: skewY(7deg); //straightens the boxes v the -7 for the whole section 
     }
 
+    @include respond(tab-port) {
+        padding: 10rem 0; //decrease padding 
+    }
+
 }
 
 .section-tours {
     background-color: $color-grey-light-1;
     padding: 25rem 0 15rem 0; 
     margin-top: -10rem; //move section up to cut off whiite space before features sections 
+
+    @include respond(tab-port) {
+        padding: 20rem 0 10rem 0; //decrease padding 
+    }
 }
 
 .section-stories {
     position: relative;
     padding: 15rem 0; //15 top/bottom
+
+    @include respond(tab-port) {
+        padding: 10rem 0; //decrease padding 
+    }
 }
 
 .section-book {
     padding: 15rem 0; 
     background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+    @include respond(tab-port) {
+        padding: 10rem 0; //decrease padding 
+    }
 }
 
 // box with background image for form
@@ -50,14 +70,30 @@
         // at the halfway point, then make background totally transparent so that 
         // the 2nd background, the image, will show 
         
-    background-size: 100%; //same as cover. 50% would give us a 2x2 of img 
+    background-size: 100%; //same as cover. 50% would give us a 2x2 of img. takes entire width (x direction) 
     border-radius: 3px; //rounded corners 
     box-shadow: 0 1.5rem 4rem rgba($color-black, .2); //bit darker with .2 bc we have colored background
 
-    height: 50rem;
+    @include respond(tab-land) {
+        background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 65%, transparent 65%), url(../img/nat-10.jpg);
+        background-size: cover; //cover y direction instead of x 
+    }
+
+    @include respond(tab-port) {
+        background-image: linear-gradient(to right, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%), url(../img/nat-10.jpg);
+
+    }
 
     &__form {
         width: 50%;
         padding: 6rem;
+
+        @include respond(tab-land) {
+            width: 65%;
+        }
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
     }
 }

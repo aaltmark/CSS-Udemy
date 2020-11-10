@@ -11,6 +11,16 @@
     font-size: $default-font-size; //paragraph will inherit
     transform: skewX(-12deg); //make shape 
 
+    @include respond(tab-port) {
+        width: 100%; //increase 
+        padding: 4rem; //decrease
+        padding-left: 7rem; //decrease 
+    }
+
+    @include respond(phone){
+        transform: skewX(0); //get rid of shape 
+    }
+
     &__shape {
         width: 15rem; //square
         height: 15rem; //square at first
@@ -26,6 +36,10 @@
 
         transform: translateX(-3rem) skewX(12deg); //translate is best way to move an element that is floated. skew is to offset rectangular skew
         position: relative; //so caption can reference and sit on top 
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(0); //get rid of shape on phone 
+        }
     }
 
     &__img {
@@ -37,6 +51,10 @@
 
     &__text {
         transform: skewX(12deg);//to offset rectangular skew 
+
+        @include respond(phone){
+            transform: skewX(0); //get rid of shape on phones 
+        }
     }
 
     &__caption { //want it to be centered over image 
