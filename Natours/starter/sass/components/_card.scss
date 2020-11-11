@@ -12,6 +12,7 @@
         top: 0;
         left: 0;
         width: 100%; //takes up full column no matter what. front is a longer word than back so it would show through otherwise
+        -webkit-backface-visibility: hidden; //prefix for browser support (safari)
         backface-visibility: hidden; //hides backpart of element  
         border-radius: 3px; //higher # gives greater curve in oval 
         overflow: hidden; //background img is overflowing and getting rid of the curve
@@ -155,7 +156,8 @@
     }
 
     //Big media query since we're rewriting a lot 
-    @include respond(tab-port) {
+    @media only screen and (max-width: 56.25), //if tab-port OR 
+    only screen and (hover: none) { //using a device where touch is primary input
         height: auto; 
         border-radius: 3px; //move radius to full element since front/back are connected 
         background-color: $color-white;

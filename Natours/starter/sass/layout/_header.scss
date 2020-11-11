@@ -1,11 +1,11 @@
 .header {
-    height: 95vh; /* at every point it should be 95% of view -- cuts off at bottom */
+    height: 85vh; /* 85% of view so they can see webpage continues */
 
     background-image: linear-gradient( /* gradient takes 2 colors for animation */ 
         to right bottom, /* indicate direction like bottom right corner */ 
         rgba($color-primary-light, 0.8), /* 0.8 is opacity - good for see through because*/
         rgba($color-primary-dark, 0.8)), /*gradient is on top of image  */
-        url(../img/hero.jpg); /* Img: go up into img folder to load the file you want */
+        url(../img/hero-small.jpg); /* Img: go up into img folder to load the file you want. small for normal resolution screens */
 
     background-size: cover; /* whatever the width of viewport, it will try to fit inside the box*/
 
@@ -13,10 +13,25 @@
 
     position: relative; /* origin for logo-box*/
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //for browser support
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* indicate 4 corners clockwise in x and y coordinates */
-        /* can use less corners - like 3 points */
-        /* could use px v. % -- vh for viewport height also it to adjust*/
+    //if browser supports the clip path polygon of any kind
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //for browser support
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* indicate 4 corners clockwise in x and y coordinates */
+            /* can use less corners - like 3 points */
+            /* could use px v. % -- vh for viewport height also it to adjust*/
+        
+        height: 95vh; //can take more height because theyll see corner 
+    }
+    // media query based on resolution
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), //retina screen res + bigger than a tablet 
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), //OR essentially the same as above but for safari (if screen is 2x v resolution)
+        only screen and (min-width: 125em) {//OR if screen width is > 2000 (2000/16 = 125em) 
+            background-image: linear-gradient( 
+                to right bottom, 
+                rgba($color-primary-light, 0.8), 
+                rgba($color-primary-dark, 0.8)), 
+                url(../img/hero.jpg); 
+    }
 
     @include respond(phone) { //change the angle of the background cut for the header on phone 
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); 

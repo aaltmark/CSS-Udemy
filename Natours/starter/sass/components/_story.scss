@@ -26,16 +26,23 @@
         height: 15rem; //square at first
         float: left; //so story can be on right 
 
-        // define where content floats around element 
-        -webkit-shape-outside: circle(50% at 50% 50%); //browser compatability 
-        shape-outside: circle(50% at 50% 50%); //radius. half width and height starting @ center 
-
-        // makes the element actually look like a circle
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
-
         transform: translateX(-3rem) skewX(12deg); //translate is best way to move an element that is floated. skew is to offset rectangular skew
         position: relative; //so caption can reference and sit on top 
+        overflow: hidden; //dont show image if goes over
+        border-radius: 50%; //make it round even without browser clip path compatability 
+
+        // if clip paths are supported
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            // makes the element actually look like a circle
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+
+             // define where content floats around element 
+            -webkit-shape-outside: circle(50% at 50% 50%); //browser compatability 
+            shape-outside: circle(50% at 50% 50%); //radius. half width and height starting @ center 
+
+            border-radius: none; //will make a circle without radius defined above 
+        }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0); //get rid of shape on phone 

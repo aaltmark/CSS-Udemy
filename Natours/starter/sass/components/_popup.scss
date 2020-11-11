@@ -12,6 +12,13 @@
 
     transition: all .3s; //so we can animate the visibility
 
+    // if either of these stylings are supported, do them. if not dont do them 
+    @supports( -webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px); //when popup comes out the rest of the website becomes blurred 
+        backdrop-filter: blur(10px); //only safari?
+        background-color: rgba($color-black, .3); //slightly transparent 
+    }
+
     &__content {
         @include absCenter; //using mixin for centering in absolute positon
 
